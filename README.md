@@ -1,4 +1,4 @@
-# js-DS-A
+# JS-DS-A
 
 JavaScript : Data-Structures &amp; Alogorithms
 
