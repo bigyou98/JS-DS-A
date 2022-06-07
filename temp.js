@@ -1,3 +1,9 @@
-for (let index = 0; index < 50; index++) {
-  console.log(Math.floor(Math.random() * 13)+5);
-}
+const arr = [1, 2, 3];
+const qwe = arr.slice();
+console.log(arr);
+console.log(qwe);
+
+qwe.push(4);
+console.log("변경후");
+console.log(arr);
+console.log(qwe);
