@@ -1,9 +1,24 @@
-const arr = [1, 2, 3];
-const qwe = arr.slice();
-console.log(arr);
-console.log(qwe);
+function solution(s) {
+  if (s[0] === ")") {
+    return false;
+  }
 
-qwe.push(4);
-console.log("변경후");
-console.log(arr);
-console.log(qwe);
+  const arr = [...s];
+
+  let left = 0;
+  for (const i of arr) {
+    if (left < 0) {
+      return false;
+    }
+
+    if (i === "(") {
+      left++;
+    } else if (i === ")") {
+      left--;
+    }
+  }
+
+  return left === 0 ? true : false;
+}
+
+console.log(solution("())(()")); // f
