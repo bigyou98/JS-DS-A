@@ -21,6 +21,39 @@ class MaxHeap {
       parentIndex = Math.floor(currentIndex / 2);
     }
   }
+
+  pop() {
+    const returnValue = this.heap[1];
+    // 배열 메소드를 사용해 맨뒤의 값을 root로 만듬
+    this.heap[1] = this.heap.pop();
+
+    let currentIndex = 1;
+    let leftIndex = 2;
+    let rightIndex = 3;
+
+    // 자신이 자식 노드보다 작은 경우에 실행
+    while (
+      this.heap[currentIndex] < this.heap[leftIndex] ||
+      this.heap[currentIndex] < this.heap[rightIndex]
+    ) {
+      if (this.heap[leftIndex] < this.heap[rightIndex]) {
+        [this.heap[rightIndex], this.heap[currentIndex]] = [
+          this.heap[currentIndex],
+          this.heap[rightIndex],
+        ];
+        currentIndex = rightIndex;
+      } else {
+        [this.heap[leftIndex], this.heap[currentIndex]] = [
+          this.heap[currentIndex],
+          this.heap[leftIndex],
+        ];
+        currentIndex = leftIndex;
+      }
+      // 위치가 변경됬으니 자식 노드들을 변경시켜준다.
+      leftIndex = currentIndex * 2;
+      rightIndex = currentIndex * 2 + 1;
+    }
+  }
 }
 
 const heap = new MaxHeap();
