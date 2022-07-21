@@ -5,13 +5,13 @@ class Node {
   }
 }
 
-class Queue {
+export class Queue {
   constructor() {
     this.head = null;
     this.tail = null;
   }
 
-  enQueque(value) {
+  enQueue(value) {
     const newNode = new Node(value);
     if (this.head === null) {
       this.tail = this.head = newNode;
@@ -30,5 +30,8 @@ class Queue {
   // 현재 head의 값
   peek() {
     return this.head.value;
+  }
+  size(){
+    
   }
 }
