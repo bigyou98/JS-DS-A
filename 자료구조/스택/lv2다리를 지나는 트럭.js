@@ -1,3 +1,5 @@
+// + 4
+
 function solution(bridge_length, weight, truck_weights = []) {
   // 다리길이 만큼 만듬
   let currentBridge = [[0, 1]];
