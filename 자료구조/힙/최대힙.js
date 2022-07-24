@@ -1,4 +1,4 @@
-class MaxHeap {
+class MinHeap {
   constructor() {
     this.heap = [null];
     // 0번째 index는 사용하지 않을 것이기 때문
@@ -11,6 +11,8 @@ class MaxHeap {
 
     // 자신이 루트가 아닌 경우
     // 부모 노드의 값이 현재 값 작은 경우
+    // 부모와 자신의 값을 바꾼다.
+    // index는 자신이 부모의 값을 갖고 부모는 2로 나눠준다.
     while (parentIndex !== 0 && this.heap[parentIndex] < value) {
       [this.heap[currentIndex], this.heap[parentIndex]] = [
         this.heap[parentIndex],
@@ -23,8 +25,13 @@ class MaxHeap {
   }
 
   pop() {
+    // 루트 정점만 남은 경우
+    if (this.heap.length === 2) return this.heap.pop();
+
     const returnValue = this.heap[1];
-    // 배열 메소드를 사용해 맨뒤의 값을 root로 만듬
+
+    // 맨뒤의 값을 root로 만든다.
+    // 왜냐 반복문 계속 돌릴거니까
     this.heap[1] = this.heap.pop();
 
     let currentIndex = 1;
@@ -36,7 +43,7 @@ class MaxHeap {
       this.heap[currentIndex] < this.heap[leftIndex] ||
       this.heap[currentIndex] < this.heap[rightIndex]
     ) {
-      if (this.heap[leftIndex] < this.heap[rightIndex]) {
+      if (this.heap[currentIndex] < this.heap[rightIndex]) {
         [this.heap[rightIndex], this.heap[currentIndex]] = [
           this.heap[currentIndex],
           this.heap[rightIndex],
@@ -53,6 +60,7 @@ class MaxHeap {
       leftIndex = currentIndex * 2;
       rightIndex = currentIndex * 2 + 1;
     }
+    return returnValue;
   }
 }
 

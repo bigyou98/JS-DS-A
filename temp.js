@@ -1,7 +1,8 @@
-const obj = {};
-obj["상훈"] = [1];
+const map = new Map();
 
-console.log(obj);
-obj["상훈"].push(2);
+map.set("상훈", ["강아지", "앵무새"]);
+map.set("선화", "고양이");
 
-console.log(obj);
+console.log([...map.entries()]);
+console.log([...map.keys()]);
+console.log([...map.values()].flat());
