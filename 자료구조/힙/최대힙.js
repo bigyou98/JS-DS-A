@@ -1,4 +1,4 @@
-class MinHeap {
+class MaxHeap {
   constructor() {
     this.heap = [null];
     // 0번째 index는 사용하지 않을 것이기 때문
