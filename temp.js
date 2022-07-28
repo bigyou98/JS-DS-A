@@ -1,8 +1,14 @@
-const map = new Map();
+const message = "안녕하세요 010-2789-3655로 연락주세요";
 
-map.set("상훈", ["강아지", "앵무새"]);
-map.set("선화", "고양이");
+const regExp = /(\d{3})-(\d{3,4})-(\d{4})/;
 
-console.log([...map.entries()]);
-console.log([...map.keys()]);
-console.log([...map.values()].flat());
+console.log(message.match(regExp));
+// [
+//   '010-2789-3655',
+//   '010',
+//   '2789',
+//   '3655',
+//   index: 6,
+//   input: '안녕하세요 010-2789-3655로 연락주세요',
+//   groups: undefined
+// ]
