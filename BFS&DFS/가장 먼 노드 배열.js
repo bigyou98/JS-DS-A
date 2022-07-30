@@ -10,14 +10,17 @@ function solution(n, edge) {
 
   // 거리 기록하는 배열 생성
   const distance = Array(n + 1).fill(0);
+
+  // 1부터 시작하기 때문에 1을 넣어둠
   distance[1] = 1;
 
-  // BFS 로직
+  // 1이 들어있다는 가정
   const queue = [1];
-  while (queue.length > 0) {
-    // 초기 노드
-    const src = queue.shift();
 
+  // BFS 로직
+  while (queue.length > 0) {
+        const src = queue.shift();
+        
     // 노드를 순회한다.
     for (dest of graph[src]) {
       // 한번도 가지 않은 곳
