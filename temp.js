@@ -1,14 +1,7 @@
-const message = "안녕하세요 010-2789-3655로 연락주세요";
+let str = "Hello World";
 
-const regExp = /(\d{3})-(\d{3,4})-(\d{4})/;
+console.log(str);
+console.log(str.replace("World", "꺼져")); //'Hello 꺼져'
 
-console.log(message.match(regExp));
-// [
-//   '010-2789-3655',
-//   '010',
-//   '2789',
-//   '3655',
-//   index: 6,
-//   input: '안녕하세요 010-2789-3655로 연락주세요',
-//   groups: undefined
-// ]
+str = str.replace("World", "꺼져");
+console.log(str);
