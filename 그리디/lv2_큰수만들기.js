@@ -14,7 +14,7 @@ function solution(number = "", k) {
     stack.pop();
     count++;
   }
-  return stack.join();
+  return stack.join("");
 }
 // console.log(solution("1924", 2)); // "94"
 // console.log(solution("1231234", 3)); // "3234"
