@@ -29,7 +29,17 @@ function solution(people = [], limit) {
   }
   return answer;
 }
+function solution(people = [], limit) {
+  let answer = 0;
+  people = people.sort((a, b) => b - a);
 
+  // 답도 증가해야함
+
+  for (let i = 0, j = people.length - 1; i <= j; i++, answer++)
+    if (people[i] + people[j] <= limit) j--;
+
+  return answer;
+}
 // console.log(solution([70, 50, 80, 50], 100)); // 3
 // console.log(solution([70, 80, 50], 100)); // 3
 // console.log(solution([70, 50, 80, 50], 100)); // 3
