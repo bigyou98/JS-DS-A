@@ -1,8 +1,11 @@
 // 소수 : 1과 자기자신만 약수인 수
 
-// 1. 직관적인 방법 : 해당 숫자를 2부터 n-1까지 반복하여 반환 false
-// 2. 소수는 N의 제곱근보다 큰수로 나눠지지 않는다는 점을 이용
+// 소수는 N의 제곱근보다 큰수로 나눠지지 않는다는 점을 이용
 function is_prime(num) {
+  if (num === 0 || num === 1) {
+    return false;
+  }
+
   for (let i = 2; i * i <= num; i++) {
     if (num % i === 0) {
       return false;
@@ -10,7 +13,7 @@ function is_prime(num) {
   }
   return true;
 }
-// 3. 에라토스테네스의 체
+// 에라토스테네스의 체
 // 가장 효과적임
 // 1부터 N까지 모든 소수를 구하는 경우 가장 효율적이다.
 function get_primes(num) {
