@@ -28,7 +28,7 @@ function get_primes(num) {
   }
 
   // num까지의 소수의 개수를 반환함
-  // return prime.filter(Boolean);
+  return prime.filter(Boolean).length;
 
   // number까지 소수의 배열
   // return prime
