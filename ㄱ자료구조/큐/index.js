@@ -31,7 +31,4 @@ class Queue {
   peek() {
     return this.head.value;
   }
-  size(){
-    
-  }
 }

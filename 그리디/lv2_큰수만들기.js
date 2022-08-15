@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/42883
+
 function solution(number = "", k) {
   const stack = [];
   let count = 0;
@@ -10,6 +12,7 @@ function solution(number = "", k) {
     }
     stack.push(item);
   }
+  
   while (count < k) {
     stack.pop();
     count++;

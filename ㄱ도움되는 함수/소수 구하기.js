@@ -13,6 +13,7 @@ function is_prime(num) {
   }
   return true;
 }
+
 // 에라토스테네스의 체
 // 가장 효과적임
 // 1부터 N까지 모든 소수를 구하는 경우 가장 효율적이다.
@@ -30,7 +31,7 @@ function get_primes(num) {
   // num까지의 소수의 개수를 반환함
   return prime.filter(Boolean).length;
 
-  // number까지 소수의 배열
+  // number까지 소수 배열을 반환함
   // return prime
   //   .map((v, i) => {
   //     if (v) {

@@ -1,3 +1,4 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/42885
 // 60점, 시간초과
 
 function solution(people = [], limit) {
@@ -29,6 +30,7 @@ function solution(people = [], limit) {
   }
   return answer;
 }
+// 정답
 function solution(people = [], limit) {
   let answer = 0;
   people = people.sort((a, b) => b - a);

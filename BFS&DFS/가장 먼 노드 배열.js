@@ -19,8 +19,8 @@ function solution(n, edge) {
 
   // BFS 로직
   while (queue.length > 0) {
-        const src = queue.shift();
-        
+    const src = queue.shift();
+
     // 노드를 순회한다.
     for (dest of graph[src]) {
       // 한번도 가지 않은 곳

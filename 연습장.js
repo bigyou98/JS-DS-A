@@ -1,2 +1,3 @@
-let arr = [22];
-console.log(arr.fill(1));
+let qwe = { we: undefined };
+
+qwe.entr
