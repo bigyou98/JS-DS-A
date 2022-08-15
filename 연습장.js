@@ -1,3 +1,1 @@
-let qwe = { we: undefined };
-
-qwe.entr
+안뇽
