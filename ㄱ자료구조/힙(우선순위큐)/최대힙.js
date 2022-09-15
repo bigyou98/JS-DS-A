@@ -1,3 +1,4 @@
+// 가장 큰값이 heap.heap[1] 에 담김
 class MaxHeap {
   constructor() {
     this.heap = [null];

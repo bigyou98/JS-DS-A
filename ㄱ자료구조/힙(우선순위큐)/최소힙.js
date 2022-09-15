@@ -1,3 +1,4 @@
+// 가장 작은 값이 heap.heap[1] 에 담김
 class MinHeap {
   constructor() {
     this.heap = [null];
