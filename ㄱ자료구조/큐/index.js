@@ -1,34 +1,49 @@
 class Node {
-  constructor(value) {
-    this.value = value;
+  constructor(data) {
+    this.data = data;
     this.next = null;
   }
 }
 
 class Queue {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.front = null;
+    this.rear = null;
   }
 
-  enQueue(value) {
-    const newNode = new Node(value);
-    if (this.head === null) {
-      this.tail = this.head = newNode;
-    }
-    this.tail = newNode;
-    this.tail.next = newNode;
+  isEmpty() {
+    return this.front == null && this.rear === null;
+  }
+  enQueue(data) {
+    const newNode = new Node(data);
+    if (this.isEmpty()) this.front = newNode;
+    else this.rear.next = newNode;
+
+    this.rear = newNode;
   }
 
   deQueue() {
-    const value = this.head.value;
-    this.head = this.head.next;
+    if (this.isEmpty()) return;
+    const value = this.front.data;
+    this.front = this.front.next;
+    if (!this.front) this.rear = null;
 
     return value;
   }
 
-  // 현재 head의 값
-  peek() {
-    return this.head.value;
+  peekFront() {
+    if (this.isEmpty()) return -404;
+    return this.front.data;
+  }
+
+  display() {
+    if (this.isEmpty()) return;
+    let curr = this.front;
+    process.stdout.write("(FRONT) ");
+    while (curr != this.rear) {
+      process.stdout.write(`${curr.data} ---> `);
+      curr = curr.next;
+    }
+    process.stdout.write(`${this.rear.data} (REAR)\n`);
   }
 }
