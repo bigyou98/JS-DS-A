@@ -18,6 +18,7 @@ class Queue {
     return this.rear === this.front;
   }
 }
+
 function solution(n, edge) {
   // 편의상 0은 버림
   const graph = Array.from(Array(n + 1), () => []);
