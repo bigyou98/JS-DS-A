@@ -22,7 +22,7 @@ function solution(graph = []) {
   for (let i = 0; i < graph.length; i++) {
     for (let j = 0; j < graph[0].length; j++) {
       // 1번 할때마다 아직 갈수있는 모든 지역들을 간 후 1로 바꿔버리기에 한구역을 먹는다.
-      // 시작점에서 처음 방문할 때만
+      // 시작점에서 처음 방문할 때만 
       if (dfs(i, j) === true) {
         answer += 1;
       }
