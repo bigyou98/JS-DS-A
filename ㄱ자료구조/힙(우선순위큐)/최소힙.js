@@ -20,7 +20,7 @@ class MinHeap {
   }
 
   pop() {
-    if (this.heap.length === 2) return this.heap.pop(); // 루트 정점만 남은 경우
+    if (this.heap.length === 2) return this.heap.pop(); 
 
     const returnValue = this.heap[1];
     this.heap[1] = this.heap.pop();
