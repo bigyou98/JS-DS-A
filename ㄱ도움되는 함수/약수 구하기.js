@@ -11,4 +11,4 @@ const getDivisors = (num) => {
   return divisors;
 };
 
-console.log(getDivisors(27)); // [ 1, 3, 9, 27 ]
+console.log(getDivisors(500)); // [ 1, 3, 9, 27 ]
