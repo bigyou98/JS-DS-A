@@ -7,8 +7,8 @@
 function solution(topping) {
   let answer = 0;
   for (let i = 1; i < topping.length; i++) {
-    let younger = new Set(topping.slice(0, i)).size;
-    let bigger = new Set(topping.slice(i)).size;
+    let younger = topping.slice(0, i);
+    let bigger = topping.slice(i);
     if (younger === bigger) {
       answer++;
     }
