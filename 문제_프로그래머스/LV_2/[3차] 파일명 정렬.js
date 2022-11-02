@@ -48,18 +48,15 @@ function solution(files) {
 
   // temp 정렬하기
   temp.sort((a, b) => {
-    if (a[0] === b[0]) {
-      if (parseInt(a[1]) === parseInt(b[1])) {
-        return 0;
-      }
-      return parseInt(a[1]) - parseInt(b[1]);
-    } else if (a[0] > b[0]) {
-      return 1;
-    } else if (b[0] > a[0]) {
-      return -1;
-    } else {
-      return 0;
-    }
+    return a[0] < b[0]
+      ? -1
+      : a[0] > b[0]
+      ? 1
+      : parseInt(a[1]) < parseInt(b[1])
+      ? -1
+      : parseInt(a[1]) > parseInt(b[1])
+      ? 1
+      : 0;
   });
   // 대문자였던 것들은 다 자기 모습으로 되돌아가야함
 
@@ -67,11 +64,12 @@ function solution(files) {
     .map((data) => {
       return data.join("");
     })
+    // 이렇게 하면 만약 같은 문자열인데 대소문자로 구분한것은 구별을 못해주기때문에 틀린 방법임
     .map((item) => {
       return filesTemp.indexOf(item);
     });
 
-  return answerArr.map((index) => {
+    return answerArr.map((index) => {
     return files[index];
   });
 }
@@ -84,16 +82,16 @@ console.log(
     "F-14 Tomcat",
   ])
 );
-// console.log(
-//   solution([
-//     "img12.png",
-//     "img10.png",
-//     "img02.png",
-//     "img1.png",
-//     "IMG01.GIF",
-//     "img2.JPG",
-//   ])
-// );
+console.log(
+  solution([
+    "img12.png",
+    "img10.png",
+    "img02.png",
+    "img1.png",
+    "IMG01.GIF",
+    "img2.JPG",
+  ])
+);
 
 // 1,2만 맞고 3~20까지 다 틀림... ㅠㅠ
 
