@@ -6,28 +6,21 @@
  * 실린 상자의 수
  */
 function solution(order) {
-
   const stack = [order[0] - 1];
   let answer = 1;
 
   for (let i = 1; i < order.length; i++) {
     const box = order[i];
-    let last = stack.length - 1;
-    if (last === -1) {
-      stack.push(box - 1);
-      answer++;
-      continue;
-    }
+    const boxMinusOne = box - 1;
+    const last = stack.length - 1;
+
     // 다음 값이 더 크다면
     if (box > stack[last]) {
       answer++;
-
-      // box가 1일 경우를 대비해야함
-
-      if (box - 1 >= stack[last]) {
+      if (boxMinusOne > stack[last]) {
         continue;
       }
-      stack.push(box - 1);
+      stack.push(boxMinusOne);
     } else {
       if (stack[last] === box) {
         stack.pop();
@@ -35,7 +28,7 @@ function solution(order) {
           answer++;
           continue;
         }
-        stack.push(box - 1);
+        stack.push(boxMinusOne);
         answer++;
       } else {
         break;
