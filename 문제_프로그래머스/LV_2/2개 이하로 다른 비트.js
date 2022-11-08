@@ -9,41 +9,23 @@ function solution(numbers) {
   const answer = [];
   for (let i = 0; i < numbers.length; i++) {
     const number = numbers[i];
-    // 해당 숫자의 이진수
-    let number_binary = number.toString(2);
-    let temp = number;
-    // 해당 조건이 맞을 때 나가기
-    while (true) {
-      // 증가하면서 비교해보기
-      temp += 1;
-      let temp_binary = temp.toString(2);
+    if (number % 2 === 0) {
+      answer.push(number + 1);
+    } else {
+      let number_binary = "0" + number.toString(2);
+      // 뒤에서 찾은 0
+      let temp = [...number_binary].reverse().indexOf("0");
 
-      // 글자의 개수 서로 맞추기
-      // 앞에 넣어주기
-      if (temp_binary.length > number_binary.length) {
-        number_binary = "0" + number_binary;
-      } else if (temp_binary.length < number_binary.length) {
-        temp_binary = "0" + temp_binary;
-      }
-      // 각 2진수 자리 수가 1 ~ 2개 차이나면 push하기
-      let count = 0;
-      for (let j = 0; j < temp_binary.length; j++) {
-        const temp_B = temp_binary[j];
-        const num_B = number_binary[j];
-        if (count >= 3) {
-          break;
-        }
-        if (temp_B !== num_B) {
-          count++;
-        }
-      }
-      if (count <= 2) {
-        answer.push(temp);
-        break;
-      }
+      const qwe = [...number_binary];
+
+      // 찾은 0의 자리에는 1을
+      qwe[number_binary.length - temp - 1] = "1";
+      // 그 앞은 0으로 만들기
+      qwe[number_binary.length - temp] = "0";
+      answer.push(parseInt(qwe.join(""), 2));
     }
   }
   return answer;
 }
 
-console.log(solution([7])); // [11]
+console.log(solution([7]));
